@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "csstatsgg_stats"
+version = "0.1.0"
+description = "Scrapes csstats.gg and makes data conclusions"
+authors = ["charlocharlie <charlielaabs@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+botasaurus = "^3.2.8"
+numpy = "^1.26.3"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.15"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
