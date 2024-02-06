@@ -121,6 +121,12 @@ def scrape_players(driver: AntiDetectDriver, detail: dict, leaderboard: list[dic
         url = player_entry["player_page_url"] + query
         print(url)
         driver.get(url)
+
+        rate_limit_elems = driver.find_elements(By.CSS_SELECTOR, "h2.text-gray-600")
+        if rate_limit_elems:
+            print("rate limited")
+            exit(429)
+
         counts_div = driver.find_element(
             By.CSS_SELECTOR,
             "#player-overview > .col-sm-8 > .col-sm-7 > div:nth-child(4) > .stat-panel > div > div:nth-child(4)",
