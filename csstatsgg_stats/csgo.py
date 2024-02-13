@@ -16,7 +16,7 @@ maps = [
     "mirage",
     # "vertigo",
     # "overpass",
-    # "nuke",
+    "nuke",
     # "ancient",
     # "dust2",
     # "office",
@@ -136,6 +136,16 @@ def scrape_players(driver: AntiDetectDriver, leaderboard: list[dict]):
     return results
 
 
+def main():
+    try:
+        scrape_all_maps()
+    except Exception as e:
+        print(e)
+        if e.msg == "invalid session id":
+            print("retrying")
+            main()
+
+
 if __name__ == "__main__":
     # Initiate the web scraping task
-    scrape_all_maps()
+    main()

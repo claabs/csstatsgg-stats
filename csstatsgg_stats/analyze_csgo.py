@@ -4,6 +4,8 @@ import statistics
 
 import numpy as np
 
+from csstatsgg_stats.generate_plot import generate_plot
+
 rank_names = {
     1: "S1",
     2: "S2",
@@ -68,6 +70,8 @@ def analyze_csgo():
                 "stdev": stdev,
             }
         )
+
+    generate_plot(stats_dicts, "CS:GO", "csgo")
 
     # Writing to CSV file
     fieldnames = [

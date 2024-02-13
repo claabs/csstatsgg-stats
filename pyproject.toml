@@ -6,10 +6,12 @@ authors = ["charlocharlie <charlielaabs@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 botasaurus = "^3.2.20"
 numpy = "^1.26.3"
 statsmodels = "^0.14.1"
+plotly = "^5.18.0"
+kaleido = "0.2.1"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -3,6 +3,8 @@ import json
 
 import statsmodels.api as sm
 
+from csstatsgg_stats.generate_plot import generate_plot
+
 maps = [
     "anubis",
     # "inferno",
@@ -99,6 +101,8 @@ def analyze_map(map_name):
                 "stdev": stdev,
             }
         )
+
+    generate_plot(stats_dicts, map_name.title(), map_name)
 
     # Writing to CSV file
     fieldnames = [
