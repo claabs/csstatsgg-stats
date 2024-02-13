@@ -1,8 +1,7 @@
 import csv
 import json
-import statistics
 
-import numpy as np
+import statsmodels.api as sm
 
 maps = [
     "anubis",
@@ -67,23 +66,26 @@ def analyze_map(map_name):
             continue
         total = player["won"] + player["lost"] + player["tied"]
         winrate = (player["won"] + (player["tied"] / 2)) / total
+        weight = player["won"] / player["wins"]
 
         if total >= 10 and rank > 0:
             if rank not in rank_sorted:
                 rank_sorted[rank] = []
-            rank_sorted[rank].append(winrate)
+            rank_sorted[rank].append([winrate, weight])
 
     stats_dicts = []
     print(map_name)
 
     for rank, rank_data in sorted(rank_sorted.items()):
-        minimum = min(rank_data)
-        q1 = np.percentile(rank_data, 25)
-        mean = statistics.mean(rank_data)
-        q3 = np.percentile(rank_data, 75)
-        maximum = max(rank_data)
-        n = len(rank_data)
-        stdev = statistics.stdev(rank_data) if n > 1 else 0
+        winrates = list(map(lambda x: x[0], rank_data))
+        weights = list(map(lambda x: x[1], rank_data))
+        weighted_stats = sm.stats.DescrStatsW(winrates, weights=weights)
+        minimum = min(winrates)
+        q1, q3 = weighted_stats.quantile([0.25, 0.75], return_pandas=False)
+        mean = weighted_stats.mean
+        maximum = max(winrates)
+        n = len(winrates)
+        stdev = weighted_stats.std
         print("%4s: mean=%.2f, stdev=%.3f, n=%i" % (rank_names[rank], mean, stdev, n))
         stats_dicts.append(
             {
