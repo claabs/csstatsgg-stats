@@ -42,12 +42,12 @@ lxml = ["lxml"]
 
 [[package]]
 name = "botasaurus"
-version = "3.2.8"
+version = "3.2.20"
 description = "The All in One Web Scraping Framework"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "botasaurus-3.2.8.tar.gz", hash = "sha256:94987ee444e1b4267480eb60c58d2be0a6c970a2672d8ddbce9dac426a2ddfbe"},
+    {file = "botasaurus-3.2.20.tar.gz", hash = "sha256:4e85890966b4a61b8efcbb061ec4bfc802778dfceb4f1a70172254ae0b86adba"},
 ]
 
 [package.dependencies]
@@ -56,7 +56,7 @@ botasaurus-proxy-authentication = "*"
 capsolver_extension_python = "*"
 chromedriver-autoinstaller = "*"
 cloudscraper = "*"
-javascript = "*"
+javascript_fixes = "*"
 packaging = "*"
 psutil = "*"
 requests = "*"
@@ -333,6 +333,20 @@ python-versions = ">=3.7, <4"
 files = [
     {file = "javascript-1!1.1.2-py3-none-any.whl", hash = "sha256:e9de3df640e2d2a217151215bf247a414859846adf930d0dba241e42df09e27f"},
     {file = "javascript-1!1.1.2.tar.gz", hash = "sha256:e5da8b33e3a6fc4f5d764c6cc6a14ab75da5796f112b041588665fa1e05f0049"},
+]
+
+[package.extras]
+dev = ["check-manifest"]
+test = ["coverage"]
+
+[[package]]
+name = "javascript-fixes"
+version = "1.1.9"
+description = "Call and interop Node.js APIs with Python"
+optional = false
+python-versions = ">=3.7, <4"
+files = [
+    {file = "javascript_fixes-1.1.9.tar.gz", hash = "sha256:19e5eb4125fa4f42a8a9bf1a0ce9a126aa4cca1f68986072ea34bb0e72b3f951"},
 ]
 
 [package.extras]
@@ -654,4 +668,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7e880af31eaee59baef78742a0c769f972975cbe2af65bd0e661025920f2cf70"
+content-hash = "60ef7d7bc8bd8f23cb2cec600fe44560878b70940ff35dac0fff2001843923f2"

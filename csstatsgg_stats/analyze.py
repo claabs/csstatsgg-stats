@@ -10,7 +10,7 @@ maps = [
     "mirage",
     # "vertigo",
     # "overpass",
-    # "nuke",
+    "nuke",
     # "ancient",
     # "dust2",
     # "office",

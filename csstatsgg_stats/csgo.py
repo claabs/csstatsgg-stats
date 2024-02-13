@@ -39,7 +39,7 @@ def write_cache(filename, data):
     f.close()
 
 
-@browser(headless=True, add_arguments=add_arguments)
+@browser(headless=True, add_arguments=add_arguments, block_resources=True)
 def scrape_all_maps(driver: AntiDetectDriver, data):
     cache_files: list[str] = []
     for name in maps:
@@ -109,11 +109,11 @@ def scrape_players(driver: AntiDetectDriver, leaderboard: list[dict]):
         player_ranks_elems = driver.find_elements(By.CSS_SELECTOR, "#player-ranks")
         if player_ranks_elems:
             header_rank_elems = player_ranks_elems[0].find_elements(
-                By.CSS_SELECTOR, ".header.ranks"
+                By.CSS_SELECTOR, ".header"
             )
             if len(header_rank_elems) == 2:
                 ranks_elems = player_ranks_elems[0].find_elements(
-                    By.CSS_SELECTOR, ".ranks:not(.header)"
+                    By.CSS_SELECTOR, ".ranks"
                 )
                 csgo_ranks_elem = ranks_elems[-1]
                 rank_url_elems = csgo_ranks_elem.find_elements(

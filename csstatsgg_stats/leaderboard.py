@@ -13,10 +13,10 @@ def add_arguments(data, options):
 maps = [
     # "anubis",
     # "inferno",
-    "mirage",
+    # "mirage",
     # "vertigo",
     # "overpass",
-    # "nuke",
+    "nuke",
     # "ancient",
     # "dust2",
     # "office",
@@ -80,7 +80,7 @@ def scrape_leaderboard(driver: AntiDetectDriver, url: str):
     return results
 
 
-@browser(headless=True, add_arguments=add_arguments)
+@browser(headless=True, add_arguments=add_arguments, block_resources=True)
 def scrape_all_leaderboards(driver: AntiDetectDriver, data):
     leaderboard_details: list[dict] = []
     for name in maps:

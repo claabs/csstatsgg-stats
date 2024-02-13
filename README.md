@@ -29,7 +29,6 @@ Players with >=10 tracked matches
 
 ![Mirage winrate by rank](img/mirage_winrate.svg)
 
-
 ```txt
   S1: mean=0.47, stdev=0.108, n=132
   S2: mean=0.48, stdev=0.073, n=180
